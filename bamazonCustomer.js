@@ -14,11 +14,11 @@ var connection = mysql.createConnection({
 
 connection.connect(function(err) {
 	if(err) throw err;
-	getProducts();
+	getAllProducts();
 });
 
 
-function getProducts() {
+function getAllProducts() {
 	connection.query("SELECT * FROM products", function(err,res) {
 		for(let i = 0; i < res.length; i++) {
 			// console.log(res[i]);
@@ -52,7 +52,9 @@ function userPrompt() {
 				stock_quantity: newQty
 			},{
 				item_id: answers.id
-			}])
+			}]);
+
+			console.log(`Total: \$${(answers.qty*chosenItem.price).toFixed(2)}`);
 		} else {
 			console.log("Insufficient quantity!");
 		}
