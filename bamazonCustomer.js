@@ -42,10 +42,20 @@ function userPrompt() {
 		message: "How many units do you want to buy?"
 	}]).then(function(answers) {
 		let chosenItem = products.find(function(item) {
-			return item.id === answers.id;
+			return item.id == answers.id;
 		});
 
-		console.log(chosenItem);
+		if(answers.qty <= chosenItem.qty) {
+			let newQty = chosenItem.qty - answers.qty;
+			// query update SQL
+			connection.query("UPDATE products SET ? WHERE ?", [{
+				stock_quantity: newQty
+			},{
+				item_id: answers.id
+			}])
+		} else {
+			console.log("Insufficient quantity!");
+		}
 	});
 
 }
