@@ -20,7 +20,7 @@ VALUES ("Laptop","Electronics",500.00,20),
 ("Slinky","Toy",1.00,80),
 ("Lipstick","Beauty",15.00,60),
 ("Chair","Home",50.00,40),
-("Scissors","Office",500.00,20),
+("Scissors","Office",3.00,300),
 ("T-Shirt","Clothing",5.00,150),
 ("Jeans","Clothing",10.00,200),
 ("Shoes","Clothing",20.00,100);

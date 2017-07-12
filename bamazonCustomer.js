@@ -58,6 +58,8 @@ function userPrompt() {
 		} else {
 			console.log("Insufficient quantity!");
 		}
+
+		connection.end();
 	});
 
 }
